@@ -1,0 +1,8 @@
+﻿CREATE TABLE AccRatesPeriods (
+	Id UNIQUEIDENTIFIER PRIMARY KEY,
+	[Period] INT,
+	RealtyId UNIQUEIDENTIFIER,
+	AvgRate FLOAT,
+	CntRates INT,
+	LastRateAt DATETIME,
+);
