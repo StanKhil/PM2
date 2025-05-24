@@ -12,10 +12,14 @@ namespace App.Services.Helper
           
         public String PathCombine(params String[] parts)
         {
+            if(parts.Length == 0) throw new ArgumentException("'parts' must not be empty");
+
+
             char[] chars = ['/', '\\', ' '];
             LinkedList<String> list = [];
             foreach (String path in parts)
             {
+                if (path.Contains("*")) throw new ArgumentException("'Invalid symbol '*'' in argument 0 ('dir*')");
                 foreach (String fragment in Regex.Split(path, @"(?<!/)/(?!/)"))
                 {
                     String part = fragment.Trim();
